@@ -24,7 +24,10 @@ fi
 echo "Building..."
 python3 "$ROOT/tools/build_app.py"
 
+echo "Rendering..."
+pixlet render "$ROOT/app/app.star" -o "$ROOT/app/app.webp"
+
 echo "Pushing to Tidbyt..."
-pixlet push --api-token "$TIDBYT_API_TOKEN" "$TIDBYT_DEVICE_ID" "$ROOT/app/app.star"
+pixlet push --api-token "$TIDBYT_API_TOKEN" "$TIDBYT_DEVICE_ID" "$ROOT/app/app.webp"
 
 echo "Done."
